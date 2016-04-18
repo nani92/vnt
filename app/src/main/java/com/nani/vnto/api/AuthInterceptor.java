@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class AuthInterceptor implements Interceptor{
 
-    public static final String KEY_API_URL =  "http://recruitment.volanto.pl:23890";
+    public static final String KEY_API_URL =  "http://recruitment.volanto.pl:23890/";
 
     private final Context context;
 
@@ -35,6 +35,8 @@ public class AuthInterceptor implements Interceptor{
 
             return chain.proceed(newRequest);
         }
+
+
 
         return chain.proceed(request);
     }

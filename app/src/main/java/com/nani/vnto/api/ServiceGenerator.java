@@ -27,10 +27,7 @@ public class ServiceGenerator {
         httpClient.interceptors().add(interceptor);
         httpClient.interceptors().add(new AuthInterceptor(context));
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
-
-        Retrofit retrofit = builder.addConverterFactory(GsonConverterFactory.create(gson)).client(httpClient).build();
+        Retrofit retrofit = builder.addConverterFactory(GsonConverterFactory.create()).client(httpClient).build();
         return retrofit.create(serviceClass);
     }
 }

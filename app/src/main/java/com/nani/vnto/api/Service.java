@@ -1,16 +1,14 @@
 package com.nani.vnto.api;
 
-import com.google.gson.JsonElement;
+import com.nani.vnto.model.Authentication;
+import com.nani.vnto.model.Contact;
 import com.nani.vnto.responses.AccountResponse;
-
-import java.util.List;
+import com.squareup.okhttp.RequestBody;
 
 import retrofit.Call;
-import retrofit.http.Field;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.GET;
+import retrofit.http.Body;
+import retrofit.http.Headers;
 import retrofit.http.POST;
-import retrofit.http.Query;
 
 
 /**
@@ -21,10 +19,14 @@ public final class Service {
 
     public static final String KEY_TOKEN = "TOKEN";
 
-    public interface GitlabServiceInterface {
-        @FormUrlEncoded
+    public interface ServiceInterface {
         @POST("tokens")
-        Call<AccountResponse> authenticate(@Field("email") String username, @Field("password") String password);
+        @Headers("Content-Type: application/json")
+        Call<Authentication> authenticate(@Body RequestBody body);
+
+        @POST("contacts")
+        @Headers("Content-Type: application/json")
+        Call<AccountResponse> createContact(@Body Contact body);
 
         /*@GET("user/?private_token")
         Call<JsonElement> getUser(@Query("private_token") String token);
@@ -33,4 +35,6 @@ public final class Service {
         Call<List<JsonElement>> getProjects(@Query("private_token") String token);
 */
     }
+
+
 }

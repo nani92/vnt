@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Vnto</string>
+
+    <string name="login">Login</string>
+    <string name="your_email_hint">Your@e-mail</string>
+    <string name="password_hint">Your password</string>
+
+    <string name="add_contact">Add Contact</string>
+    <string name="contact_first_name_hint">Contact first name</string>
+    <string name="contact_last_name_hint">Contact last name</string>
+    <string name="contact_company_name_hint">Contact company name</string>
+    <string name="contact_email_hint">Contact e-mail</string>
+    <string name="contact_phone_hint">Contact phone</string>
+
+    <string name="contact_created">Contact created!</string>
+    <string name="error">There was an error.</string>
+    <string name="form_not_filled_properly">Please fill form properly</string>
 </resources>
