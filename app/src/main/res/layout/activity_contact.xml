@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/addContactLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <EditText
+        android:id="@+id/firstNameEditText"
+        style="@style/AppTheme.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_first_name_hint"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/lastNameEditText"
+        style="@style/AppTheme.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_last_name_hint"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/companyNameEditText"
+        style="@style/AppTheme.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_company_name_hint"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        style="@style/AppTheme.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_email_hint"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        style="@style/AppTheme.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_phone_hint"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:id="@+id/editButtonsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/editContactButton"
+                style="@style/AppTheme.Text"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/edit_contact" />
+
+            <Button
+                android:id="@+id/removeContactButton"
+                style="@style/AppTheme.Text"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/remove_contact" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addPhotoButton"
+            style="@style/AppTheme.Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_photo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/imageLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="200px"
+            android:layout_height="200px"/>
+
+        <Button
+            android:id="@+id/sendPhotoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_photo"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/addContactButton"
+        style="@style/AppTheme.Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_contact" />
+
+</LinearLayout>

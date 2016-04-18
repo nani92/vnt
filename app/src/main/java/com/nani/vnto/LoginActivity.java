@@ -1,22 +1,20 @@
 package com.nani.vnto;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.nani.vnto.api.AuthenticateRequestBody;
 import com.nani.vnto.api.Service;
 import com.nani.vnto.api.ServiceGenerator;
 import com.nani.vnto.model.Authentication;
-import com.nani.vnto.responses.AccountResponse;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
 
@@ -37,6 +35,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText passwordEditText;
     @Bind(R.id.loginButton)
     Button loginButton;
+    @Bind(R.id.loginLinearLayout)
+    LinearLayout loginLinearLayout;
 
     private int minPasswordLength = 3;
 
@@ -84,6 +84,10 @@ public class LoginActivity extends AppCompatActivity {
         apiLogin(emailEditText.getText().toString(), passwordEditText.getText().toString());
     }
 
+    private void showSnackbar(String message){
+        Snackbar.make(loginLinearLayout, message, Snackbar.LENGTH_LONG).show();
+    }
+
     public void apiLogin( String email, String password){
         Service.ServiceInterface client = ServiceGenerator.createService(Service.ServiceInterface.class, LoginActivity.this);
         AuthenticateRequestBody authenticateRequestBody = new AuthenticateRequestBody(email, password);
@@ -93,8 +97,20 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Response<Authentication> response, Retrofit retrofit) {
-                saveToken(response.body().getValue());
-                LoginActivity.this.startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                if (response.errorBody() != null) {
+                    LoginActivity.this.loginButton.setEnabled(true);
+                    showSnackbar(response.message());
+
+                    return;
+                }
+
+                if (response.code() == 200) {
+                    saveToken(response.body().getValue());
+                    LoginActivity.this.startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                }
+
+                LoginActivity.this.loginButton.setEnabled(true);
             }
 
             @Override

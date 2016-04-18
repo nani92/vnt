@@ -6,6 +6,8 @@
     <string name="password_hint">Your password</string>
 
     <string name="add_contact">Add Contact</string>
+    <string name="edit_contact">Edit Contact</string>
+    <string name="remove_contact">Remove</string>
     <string name="contact_first_name_hint">Contact first name</string>
     <string name="contact_last_name_hint">Contact last name</string>
     <string name="contact_company_name_hint">Contact company name</string>
@@ -15,4 +17,8 @@
     <string name="contact_created">Contact created!</string>
     <string name="error">There was an error.</string>
     <string name="form_not_filled_properly">Please fill form properly</string>
+    <string name="contact_deleted">Contact deleted successfully</string>
+    <string name="contact_edited">Contact edited successfully</string>
+    <string name="add_photo">Add photo</string>
+    <string name="send_photo">Send photo</string>
 </resources>

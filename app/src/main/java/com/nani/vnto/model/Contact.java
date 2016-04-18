@@ -1,6 +1,10 @@
 
 package com.nani.vnto.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Base64;
+
 import com.google.gson.annotations.SerializedName;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
@@ -24,6 +28,8 @@ public class Contact {
     private String email;
     @SerializedName("phoneNumber")
     private String phoneNumber;
+
+    private byte[] imageBytes;
 
 
     public Integer getId() {
@@ -128,4 +134,13 @@ public class Contact {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public byte[] getImageBytes() {
+        return imageBytes;
+    }
+
+    public void setImageBytes(byte[] imageBytes) {
+        this.imageBytes = imageBytes;
+    }
+
 }
